@@ -48,7 +48,7 @@ module.exports = (env, argv) => {
       port: '3000', open: true, // Автовключение браузера при включении dev mode
       hot: true, // Hot reload
       watchFiles: './', // Какие изменения отслеживаем для Hot Reload
-    }, plugins: plugins(), // Здесь описываются все лоадары (штуки, которые позволяют импортировать объекты и парсить их, чтобы взаимодействовать с ними)
+    }, plugins: plugins(), // Здесь описываются все лоадеры (штуки, которые позволяют импортировать объекты и парсить их, чтобы взаимодействовать с ними)
     devtool: isDev ? 'source-map' : false, module: {
       rules: [{
         test: /\.s[ac]ss$/i, use: [// Creates `style` nodes from JS strings

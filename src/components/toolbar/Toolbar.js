@@ -3,40 +3,28 @@ import {ExcelComponent} from '../../core/ExcelComponent';
 export class Toolbar extends ExcelComponent {
   static className = 'excel__toolbar'
   toHTML() {
-    return `      <div class="button">
-                    <span class="material-icons">
-                        format_align_left
-                    </span>
+    return `<div class="button">
+        <i class="material-icons">format_align_left</i>
       </div>
 
       <div class="button">
-                    <span class="material-icons">
-                        format_align_right
-                    </span>
+        <i class="material-icons">format_align_center</i>
       </div>
 
       <div class="button">
-                    <span class="material-icons">
-                        format_align_center
-                    </span>
+        <i class="material-icons">format_align_right</i>
       </div>
 
       <div class="button">
-                    <span class="material-icons">
-                        format_bold
-                    </span>
+        <i class="material-icons">format_bold</i>
       </div>
 
       <div class="button">
-                    <span class="material-icons">
-                        format_italic
-                    </span>
+        <i class="material-icons">format_italic</i>
       </div>
 
       <div class="button">
-                    <span class="material-icons">
-                        format_underline
-                    </span>
+        <i class="material-icons">format_underlined</i>
       </div>`
   }
 }

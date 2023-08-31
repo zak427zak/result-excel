@@ -11,19 +11,16 @@
   display: flex;
   justify-content: space-between;
 
-  // temp
-  background-color: aqua;
-
-  & .excel__title-input {
+  & .input {
     margin: 0;
     padding: 2px 7px;
-    max-width: 1px;
+    min-width: 1px;
     color: #000;
     border: 1px solid transparent;
     border-radius: 2px;
     height: 20px;
     font-size: 18px;
-    line-height: 22;
+    line-height: 22px;
     outline: none;
 
     &:hover {
@@ -35,7 +32,8 @@
     }
   }
 
-  & .button {
+  .button {
     @include button(red);
   }
+
 }

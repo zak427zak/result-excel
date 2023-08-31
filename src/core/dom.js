@@ -5,9 +5,10 @@ class Dom {
         ? document.querySelector(selector) : selector
   }
 
-  html(html = '') {
+  html(html) {
     if (typeof html === 'string') {
       this.$el.innerHTML = html
+      return this
     }
     return this.$el.outerHTML.trim()
   }
@@ -26,9 +27,9 @@ class Dom {
       node = node.$el
     }
     if (Element.prototype.append) {
-      this.$el.append(node.$el)
+      this.$el.append(node)
     } else {
-      this.$el.appendChild(node.$el)
+      this.$el.appendChild(node)
     }
     return this
   }
