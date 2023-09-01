@@ -12,7 +12,8 @@
   .row {
     display: flex;
     flex-direction: row;
-    min-height: $row-height;
+    min-height: 20px;
+    height: $row-height;
   }
 
   .row-info {
@@ -24,7 +25,6 @@
     border: 1px solid $border-color;
     background: #f8f9fa;
     border-top: none;
-
   }
 
   .row-data {
@@ -39,9 +39,9 @@
     min-width: 40px;
     width: $cell-width;
     border: 1px solid $border-color;
+    border-top: 0;
+    border-left: 0;
     height: 100%;
-    border-top: none;
-    border-left: none;
   }
 
   .cell {
@@ -50,11 +50,12 @@
     width: $cell-width;
     height: 100%;
     border: 1px solid #e2e3e3;
-    border-top: none;
-    border-left: none;
+    border-top: 0;
+    border-left: 0;
     color: #111;
     white-space: nowrap;
     outline: none;
+
 
     &.selected {
       border: none;
@@ -62,4 +63,5 @@
       z-index: 2;
     }
   }
+
 }
