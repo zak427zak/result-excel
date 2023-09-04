@@ -17,5 +17,7 @@ module.exports = {
     'require-jsdoc': 'off',
     'operator-linebreak': 'off',
     'max-len': 'off',
+    'linebreak-style': 'off',
+    "padded-blocks": "off"
   }
 };
