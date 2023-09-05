@@ -37,6 +37,15 @@ class Dom {
     }
     return this
   }
+
+  closest(selector) {
+    return $(this.$el.closest(selector))
+  }
+
+  getCoords() {
+    return this.$el.getBoundingClientRect()
+  }
+
 }
 
 // $('div').html('<h1>Test</h1>').clear()
