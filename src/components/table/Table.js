@@ -12,7 +12,7 @@ export class Table extends ExcelComponent {
   }
 
   toHTML() {
-    return createTable(5)
+    return createTable(30)
   }
 
   // onClick() {
@@ -26,22 +26,31 @@ export class Table extends ExcelComponent {
       // const $parent = $resizer.$el.closest('.column') // better but bad
       const $parent = $resizer.closest('div[data-type="resizable"]') // best
       const coords = $parent.getCoords()
-      const colIndex = $parent.$el.dataset.id
+      const colIndex = $parent.data.id
+      const columnCells = this.$root.findAll(`[data-column="${colIndex}"]`)
+      const isColumnResize = event.target.dataset.resize === 'col';
+
 
       document.onmousemove = (e) => {
-        const delta = Math.floor(e.pageX - coords.right)
-        const value = coords.width + delta
+        if (isColumnResize) {
+          const delta = Math.floor(e.pageX - coords.right)
+          const value = coords.width + delta
+          $parent.$el.style.width = value + 'px'
 
-        this.$root.$el.querySelectorAll(`[data-column="${colIndex}"]`).forEach((cell) => {
-          cell.style.width = value + 'px';
-          cell.classList.add('column');
-        });
-
-        $parent.$el.style.width = value + 'px'
-
+          columnCells.forEach((cell) => {
+            cell.style.width = value + 'px';
+            cell.classList.add('column');
+            $parent.$el.style.width = value + 'px'
+          });
+        } else {
+          const delta = Math.floor(e.pageY - coords.bottom)
+          const value = coords.height + delta
+          $parent.$el.style.height = value + 'px'
+        }
       }
+
       document.onmouseup = () => {
-        this.$root.$el.querySelectorAll(`[data-column="${colIndex}"]`).forEach((cell) => {
+        columnCells.forEach((cell) => {
           cell.classList.remove('column');
         });
         document.onmousemove = null
